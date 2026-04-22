@@ -6,244 +6,106 @@ html_code = '''<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arca Plumbing | Orange County's Trusted Plumbers Since 2006</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --arca-blue: #1e40af;
             --arca-blue-light: #3b82f6;
             --arca-red: #b91c1c;
-            --arca-red-light: #ef4444;
-            --primary: #0ea5e9;
-            --secondary: #06b6d4;
-            --accent: #f59e0b;
-            --dark: #0f172a;
-            --darker: #020617;
-            --light: #f8fafc;
+            --navy: #0f172a;
+            --slate: #334155;
+            --muted: #64748b;
+            --light: #f1f5f9;
             --white: #ffffff;
-            --success: #10b981;
+            --success: #059669;
+            --accent: #d97706;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--dark);
+            color: var(--navy);
             line-height: 1.6;
             overflow-x: hidden;
             background: var(--white);
-        }
-        
-        /* ===== ARCA LOGO ===== */
-        .logo-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            line-height: 1;
-        }
-        
-        .logo-arca {
-            font-size: 32px;
-            font-weight: 900;
-            color: var(--arca-blue);
-            letter-spacing: 2px;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-arca .wrench-left {
-            display: inline-block;
-            width: 28px;
-            height: 8px;
-            background: var(--arca-blue);
-            border-radius: 4px 0 0 4px;
-            position: relative;
-            margin-right: -2px;
-        }
-        
-        .logo-arca .wrench-left::after {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 12px;
-            height: 16px;
-            background: var(--arca-blue);
-            border-radius: 50%;
-        }
-        
-        .logo-arca .wrench-right {
-            display: inline-block;
-            width: 28px;
-            height: 8px;
-            background: var(--arca-blue);
-            border-radius: 0 4px 4px 0;
-            position: relative;
-            margin-left: -2px;
-        }
-        
-        .logo-arca .wrench-right::after {
-            content: '';
-            position: absolute;
-            right: -6px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 12px;
-            height: 16px;
-            background: var(--arca-blue);
-            border-radius: 50%;
-        }
-        
-        .logo-arca .wrench-center {
-            display: inline-block;
-            width: 20px;
-            height: 3px;
-            background: var(--arca-blue);
-            margin: 0 2px;
-            position: relative;
-        }
-        
-        .logo-arca .wrench-center::before,
-        .logo-arca .wrench-center::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: var(--arca-blue);
-            left: 0;
-        }
-        
-        .logo-arca .wrench-center::before {
-            top: -5px;
-        }
-        
-        .logo-arca .wrench-center::after {
-            bottom: -5px;
-        }
-        
-        .logo-plumbing {
-            font-family: 'Great Vibes', cursive;
-            font-size: 28px;
-            color: var(--arca-red);
-            margin-top: -8px;
-            margin-left: 8px;
-            letter-spacing: 1px;
+            -webkit-font-smoothing: antialiased;
         }
         
         /* ===== ANIMATIONS ===== */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-15px); }
         }
-        
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.4), 0 0 40px rgba(245, 158, 11, 0.2); }
-            50% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.5), 0 0 60px rgba(245, 158, 11, 0.3); }
-        }
-        
         @keyframes gradient-shift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        
         @keyframes slide-up {
-            from { opacity: 0; transform: translateY(60px); }
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
         @keyframes slide-in-right {
-            from { opacity: 0; transform: translateX(80px); }
+            from { opacity: 0; transform: translateX(60px); }
             to { opacity: 1; transform: translateX(0); }
         }
-        
         @keyframes scale-in {
-            from { opacity: 0; transform: scale(0.8); }
+            from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
         }
-        
-        @keyframes wave {
-            0%, 100% { transform: translateY(0); }
-            25% { transform: translateY(-10px); }
-            75% { transform: translateY(5px); }
-        }
-        
         @keyframes shimmer {
             0% { left: -100%; }
             100% { left: 100%; }
         }
         
-        @keyframes logo-breathe {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-        
         /* ===== REVEAL ON SCROLL ===== */
         .reveal {
             opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
+        .reveal.active { opacity: 1; transform: translateY(0); }
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
         .reveal-delay-4 { transition-delay: 0.4s; }
-        .reveal-delay-5 { transition-delay: 0.5s; }
         
         /* ===== EMERGENCY BAR ===== */
         .emergency-bar {
-            background: linear-gradient(90deg, var(--arca-red), var(--arca-red-light), var(--arca-red));
-            background-size: 200% 100%;
-            animation: gradient-shift 3s ease infinite;
+            background: var(--arca-red);
             color: white;
             text-align: center;
-            padding: 12px 20px;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
             position: relative;
             overflow: hidden;
         }
-        
         .emergency-bar::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shimmer 2s infinite;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            animation: shimmer 3s infinite;
         }
-        
         .emergency-bar a {
             color: white;
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            margin-left: 8px;
-            font-weight: 800;
+            text-decoration: none;
+            font-weight: 700;
+            margin-left: 6px;
             position: relative;
             z-index: 1;
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+            transition: border-color 0.2s;
         }
+        .emergency-bar a:hover { border-bottom-color: white; }
         
         /* ===== NAVIGATION ===== */
         nav {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             padding: 14px 5%;
@@ -253,828 +115,599 @@ html_code = '''<!DOCTYPE html>
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
             transition: all 0.3s ease;
         }
-        
         nav.scrolled {
             padding: 10px 5%;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 1px 20px rgba(0,0,0,0.06);
         }
-        
+        .logo-img {
+            height: 48px;
+            width: auto;
+            transition: transform 0.3s;
+        }
+        .logo-img:hover { transform: scale(1.02); }
         .nav-links {
             display: flex;
-            gap: 36px;
+            gap: 32px;
             align-items: center;
         }
-        
         .nav-links a {
             text-decoration: none;
-            color: #475569;
-            font-weight: 600;
-            font-size: 15px;
+            color: var(--slate);
+            font-weight: 500;
+            font-size: 14px;
             position: relative;
-            transition: color 0.3s;
+            transition: color 0.2s;
             padding: 4px 0;
+            letter-spacing: 0.2px;
         }
-        
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
+            bottom: 0; left: 0;
+            width: 0; height: 1.5px;
             background: var(--arca-blue);
             transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
-        .nav-links a:hover {
-            color: var(--arca-blue);
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+        .nav-links a:hover { color: var(--arca-blue); }
+        .nav-links a:hover::after { width: 100%; }
         
         .phone-btn {
-            background: linear-gradient(135deg, var(--success), #059669);
+            background: var(--success);
             color: white;
-            padding: 14px 28px;
-            border-radius: 12px;
+            padding: 12px 24px;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 15px;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 10px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            gap: 8px;
+            letter-spacing: 0.2px;
         }
-        
-        .phone-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .phone-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-        
         .phone-btn:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
-        }
-        
-        .phone-btn svg {
-            position: relative;
-            z-index: 1;
-            transition: transform 0.3s;
-        }
-        
-        .phone-btn:hover svg {
-            transform: rotate(15deg);
+            background: #047857;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
         }
         
         /* ===== HERO ===== */
         .hero {
-            background: linear-gradient(135deg, #0c4a6e 0%, #075985 30%, #0369a1 60%, var(--primary) 100%);
-            background-size: 400% 400%;
-            animation: gradient-shift 15s ease infinite;
+            background: linear-gradient(160deg, #0c4a6e 0%, #075985 40%, #0ea5e9 100%);
+            background-size: 300% 300%;
+            animation: gradient-shift 20s ease infinite;
             color: white;
-            padding: 100px 5% 80px;
+            padding: 90px 5% 80px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 70px;
             align-items: center;
-            min-height: 90vh;
+            min-height: 85vh;
             position: relative;
             overflow: hidden;
         }
-        
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 40%);
-            animation: float 8s ease-in-out infinite;
+                radial-gradient(circle at 15% 85%, rgba(14, 165, 233, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 85% 15%, rgba(6, 182, 212, 0.15) 0%, transparent 40%);
         }
-        
         .hero-content {
             position: relative;
             z-index: 2;
         }
-        
         .hero-content h1 {
-            font-size: 52px;
-            font-weight: 900;
-            line-height: 1.05;
-            margin-bottom: 24px;
-            letter-spacing: -2px;
-            animation: slide-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.08;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+            animation: slide-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
         }
-        
         .hero-content .subtitle {
-            font-size: 21px;
-            opacity: 0.9;
-            margin-bottom: 36px;
+            font-size: 18px;
+            opacity: 0.85;
+            margin-bottom: 32px;
             font-weight: 400;
-            max-width: 500px;
-            animation: slide-up 1s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            max-width: 480px;
+            line-height: 1.6;
+            animation: slide-up 0.9s 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
         }
-        
         .rating-pill {
             display: inline-flex;
             align-items: center;
-            gap: 14px;
-            background: rgba(255,255,255,0.12);
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
             backdrop-filter: blur(20px);
-            padding: 14px 24px;
+            padding: 10px 18px;
             border-radius: 50px;
-            margin-bottom: 36px;
-            border: 1px solid rgba(255,255,255,0.2);
-            animation: scale-in 0.8s 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            margin-bottom: 28px;
+            border: 1px solid rgba(255,255,255,0.15);
+            animation: scale-in 0.7s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
-            transition: all 0.3s;
+            font-size: 13px;
+            font-weight: 600;
         }
-        
-        .rating-pill:hover {
-            background: rgba(255,255,255,0.2);
-            transform: scale(1.05);
-        }
-        
         .stars {
             color: #fbbf24;
-            font-size: 20px;
-            letter-spacing: 3px;
-            display: inline-block;
-            animation: wave 1.5s ease-in-out infinite;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
-        
-        .rating-text {
-            font-size: 15px;
-            font-weight: 700;
-        }
-        
         .hero-buttons {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             flex-wrap: wrap;
-            animation: slide-up 1s 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: slide-up 0.9s 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
         }
-        
         .btn-primary {
             background: white;
             color: var(--arca-blue);
-            padding: 18px 36px;
-            border-radius: 14px;
+            padding: 16px 32px;
+            border-radius: 10px;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 17px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             border: none;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            letter-spacing: 0.2px;
         }
-        
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s;
-        }
-        
-        .btn-primary:hover::after {
-            left: 100%;
-        }
-        
         .btn-primary:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
-        
         .btn-secondary {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.08);
             color: white;
-            padding: 18px 36px;
-            border-radius: 14px;
+            padding: 16px 32px;
+            border-radius: 10px;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 17px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            border: 2px solid rgba(255,255,255,0.3);
-            position: relative;
-            overflow: hidden;
+            gap: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            letter-spacing: 0.2px;
         }
-        
         .btn-secondary:hover {
-            background: rgba(255,255,255,0.2);
-            border-color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.3);
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.35);
+            transform: translateY(-2px);
         }
-        
         .trust-badges {
             display: flex;
-            gap: 28px;
-            margin-top: 36px;
-            font-size: 14px;
-            opacity: 0.85;
-            font-weight: 600;
-            animation: slide-up 1s 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            gap: 24px;
+            margin-top: 32px;
+            font-size: 13px;
+            opacity: 0.75;
+            font-weight: 500;
+            animation: slide-up 0.9s 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
         }
-        
         .trust-badges span {
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-        }
-        
-        .trust-badges span:hover {
-            opacity: 1;
-            transform: translateX(5px);
+            gap: 6px;
         }
         
         .hero-visual {
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.06);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
-            border-radius: 24px;
-            padding: 40px;
-            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 36px;
+            border: 1px solid rgba(255,255,255,0.12);
             position: relative;
             z-index: 2;
-            animation: slide-in-right 1s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: slide-in-right 0.9s 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
-            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
         }
-        
-        .hero-visual::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
-            border-radius: 26px;
-            z-index: -1;
-            opacity: 0.3;
-            filter: blur(10px);
-        }
-        
         .hero-visual h3 {
-            font-size: 22px;
-            margin-bottom: 28px;
+            font-size: 20px;
+            margin-bottom: 24px;
             font-weight: 700;
             text-align: center;
+            letter-spacing: -0.3px;
         }
-        
         .form-group {
-            margin-bottom: 18px;
-            position: relative;
+            margin-bottom: 16px;
         }
-        
         .form-group label {
             display: block;
-            font-size: 12px;
-            font-weight: 700;
-            margin-bottom: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 6px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.9;
+            letter-spacing: 0.8px;
+            opacity: 0.8;
         }
-        
         .form-group input,
         .form-group select {
             width: 100%;
-            padding: 16px 18px;
-            border-radius: 12px;
-            border: 2px solid rgba(255,255,255,0.15);
-            font-size: 15px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            border: 1.5px solid rgba(255,255,255,0.12);
+            font-size: 14px;
             font-family: 'Inter', sans-serif;
             background: rgba(255,255,255,0.95);
-            color: var(--dark);
-            transition: all 0.3s;
+            color: var(--navy);
+            transition: all 0.2s;
         }
-        
         .form-group input:focus,
         .form-group select:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
-            transform: translateY(-2px);
+            box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
         }
-        
         .submit-btn {
             width: 100%;
-            background: linear-gradient(135deg, var(--accent), #d97706);
+            background: var(--accent);
             color: white;
-            padding: 18px;
-            border-radius: 12px;
+            padding: 16px;
+            border-radius: 10px;
             border: none;
-            font-size: 17px;
-            font-weight: 800;
+            font-size: 15px;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            margin-top: 12px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+            transition: all 0.3s;
+            margin-top: 8px;
+            letter-spacing: 0.2px;
         }
-        
         .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.5);
-        }
-        
-        .submit-btn:active {
+            background: #b45309;
             transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
         }
-        
         .form-note {
             text-align: center;
-            font-size: 13px;
-            margin-top: 16px;
-            opacity: 0.8;
+            font-size: 12px;
+            margin-top: 14px;
+            opacity: 0.7;
         }
         
         /* ===== SERVICES ===== */
         .services {
             padding: 100px 5%;
             background: var(--light);
-            position: relative;
         }
-        
-        .services::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.3), transparent);
-        }
-        
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 56px;
         }
-        
         .section-header h2 {
-            font-size: 42px;
-            font-weight: 900;
-            color: var(--dark);
-            margin-bottom: 16px;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 12px;
             letter-spacing: -1px;
         }
-        
         .section-header p {
-            font-size: 19px;
-            color: #64748b;
-            max-width: 600px;
+            font-size: 17px;
+            color: var(--muted);
+            max-width: 520px;
             margin: 0 auto;
+            line-height: 1.6;
         }
-        
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 28px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1100px;
             margin: 0 auto;
         }
-        
         .service-card {
             background: white;
-            padding: 40px 32px;
-            border-radius: 20px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 36px 30px;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
-            border: 2px solid transparent;
+            border: 1px solid transparent;
             position: relative;
             overflow: hidden;
         }
-        
         .service-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--arca-blue), var(--arca-blue-light));
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: var(--arca-blue);
             transform: scaleX(0);
             transform-origin: left;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-        
+        .service-card:hover::before { transform: scaleX(1); }
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(30, 64, 175, 0.12);
-            border-color: rgba(30, 64, 175, 0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(30, 64, 175, 0.1);
+            border-color: rgba(30, 64, 175, 0.1);
         }
-        
         .service-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, #eff6ff, #dbeafe);
-            border-radius: 16px;
+            width: 48px;
+            height: 48px;
+            background: var(--light);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            margin-bottom: 24px;
-            transition: all 0.4s;
+            margin-bottom: 20px;
+            transition: all 0.3s;
         }
-        
         .service-card:hover .service-icon {
-            transform: scale(1.1) rotate(-5deg);
-            background: linear-gradient(135deg, var(--arca-blue), var(--arca-blue-light));
+            background: var(--arca-blue);
         }
-        
+        .service-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--arca-blue);
+            transition: stroke 0.3s;
+        }
+        .service-card:hover .service-icon svg {
+            stroke: white;
+        }
         .service-card h3 {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--dark);
-            margin-bottom: 12px;
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
         }
-        
         .service-card p {
-            color: #64748b;
-            font-size: 15px;
-            line-height: 1.7;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.65;
         }
-        
         .service-link {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             color: var(--arca-blue);
-            font-weight: 700;
-            font-size: 15px;
-            margin-top: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 16px;
             text-decoration: none;
-            transition: all 0.3s;
-            position: relative;
+            transition: all 0.2s;
         }
-        
-        .service-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--arca-blue);
-            transition: width 0.3s;
-        }
-        
-        .service-link:hover {
-            gap: 14px;
-            color: var(--arca-blue-light);
-        }
-        
-        .service-link:hover::after {
-            width: 100%;
-        }
+        .service-link:hover { gap: 10px; }
         
         /* ===== WHY US ===== */
         .why-us {
             padding: 100px 5%;
             background: white;
-            position: relative;
         }
-        
         .why-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 40px;
-            max-width: 1100px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
             margin: 0 auto;
         }
-        
         .why-item {
             text-align: center;
-            padding: 32px 24px;
-            border-radius: 20px;
-            transition: all 0.4s;
-            position: relative;
+            padding: 28px 20px;
+            border-radius: 16px;
+            transition: all 0.3s;
         }
-        
         .why-item:hover {
             background: var(--light);
-            transform: translateY(-5px);
+            transform: translateY(-4px);
         }
-        
         .why-number {
-            font-size: 64px;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--arca-blue), var(--arca-blue-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            margin-bottom: 16px;
-            display: inline-block;
-        }
-        
-        .why-item h3 {
-            font-size: 20px;
+            font-size: 52px;
             font-weight: 800;
-            margin-bottom: 10px;
-            color: var(--dark);
+            color: var(--arca-blue);
+            line-height: 1;
+            margin-bottom: 12px;
+            letter-spacing: -2px;
         }
-        
+        .why-item h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--navy);
+        }
         .why-item p {
-            color: #64748b;
-            font-size: 15px;
-            line-height: 1.7;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
         }
         
         /* ===== REVIEWS ===== */
         .reviews {
             padding: 100px 5%;
-            background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);
+            background: var(--navy);
             color: white;
             position: relative;
             overflow: hidden;
         }
-        
         .reviews::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 50%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
+            top: -30%; left: -20%;
+            width: 140%; height: 160%;
+            background: radial-gradient(circle at 30% 50%, rgba(14, 165, 233, 0.06) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(6, 182, 212, 0.04) 0%, transparent 50%);
+            animation: float 25s ease-in-out infinite;
         }
-        
-        .reviews .section-header h2 {
-            color: white;
-        }
-        
-        .reviews .section-header p {
-            color: #94a3b8;
-        }
-        
+        .reviews .section-header h2 { color: white; }
+        .reviews .section-header p { color: #94a3b8; }
         .review-carousel {
-            max-width: 800px;
+            max-width: 720px;
             margin: 0 auto;
             position: relative;
         }
-        
         .review-card {
             background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            padding: 48px 40px;
-            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 44px 40px;
+            border-radius: 20px;
             text-align: center;
             position: relative;
             backdrop-filter: blur(10px);
-            transition: all 0.5s;
         }
-        
-        .review-card:hover {
-            background: rgba(255,255,255,0.06);
-            border-color: rgba(255,255,255,0.15);
-            transform: translateY(-5px);
-        }
-        
-        .quote-icon {
-            font-size: 60px;
-            color: var(--primary);
-            opacity: 0.3;
-            line-height: 1;
-            margin-bottom: -20px;
-        }
-        
         .review-stars {
             color: #fbbf24;
-            font-size: 28px;
-            margin-bottom: 24px;
-            letter-spacing: 6px;
-            display: inline-block;
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
         }
-        
         .review-text {
-            font-size: 20px;
-            line-height: 1.8;
-            margin-bottom: 28px;
+            font-size: 18px;
+            line-height: 1.75;
+            margin-bottom: 24px;
             font-style: italic;
-            opacity: 0.95;
+            opacity: 0.92;
             font-weight: 400;
+            letter-spacing: 0.1px;
         }
-        
         .review-author {
             font-weight: 700;
             color: #e2e8f0;
-            font-size: 16px;
+            font-size: 15px;
         }
-        
         .review-location {
             color: #64748b;
-            font-size: 14px;
+            font-size: 13px;
             margin-top: 4px;
         }
-        
         .review-platforms {
             display: flex;
             justify-content: center;
-            gap: 48px;
-            margin-top: 48px;
+            gap: 40px;
+            margin-top: 44px;
             flex-wrap: wrap;
         }
-        
         .platform {
             text-align: center;
-            padding: 20px 32px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.06);
-            transition: all 0.4s;
-            min-width: 140px;
+            padding: 18px 28px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+            min-width: 120px;
         }
-        
         .platform:hover {
-            background: rgba(255,255,255,0.08);
-            transform: translateY(-5px);
-            border-color: rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-3px);
         }
-        
         .platform-score {
-            font-size: 40px;
-            font-weight: 900;
+            font-size: 36px;
+            font-weight: 800;
             color: #fbbf24;
             line-height: 1;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
-        
         .platform-name {
-            font-size: 14px;
+            font-size: 13px;
             color: #64748b;
-            font-weight: 600;
+            font-weight: 500;
         }
         
         /* ===== CTA ===== */
         .cta {
             padding: 100px 5%;
-            background: linear-gradient(135deg, #0c4a6e 0%, #075985 50%, #0369a1 100%);
+            background: linear-gradient(160deg, #0c4a6e 0%, #075985 50%, #0ea5e9 100%);
             color: white;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-        
         .cta::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
         }
-        
         .cta h2 {
-            font-size: 44px;
-            font-weight: 900;
-            margin-bottom: 20px;
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
             position: relative;
             letter-spacing: -1px;
         }
-        
         .cta p {
-            font-size: 20px;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            max-width: 500px;
+            font-size: 18px;
+            opacity: 0.85;
+            margin-bottom: 36px;
+            max-width: 480px;
             margin-left: auto;
             margin-right: auto;
             position: relative;
+            line-height: 1.6;
         }
-        
         .cta-phone {
             display: inline-flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
             background: white;
             color: var(--arca-blue);
-            padding: 24px 48px;
-            border-radius: 16px;
+            padding: 22px 44px;
+            border-radius: 14px;
             text-decoration: none;
-            font-size: 28px;
-            font-weight: 900;
+            font-size: 26px;
+            font-weight: 800;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-            animation: pulse-glow 3s ease-in-out infinite;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+            letter-spacing: -0.5px;
         }
-        
         .cta-phone:hover {
-            transform: scale(1.08) translateY(-3px);
-            box-shadow: 0 16px 50px rgba(0,0,0,0.3);
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
         }
         
         /* ===== FOOTER ===== */
         footer {
             background: var(--darker);
             color: #64748b;
-            padding: 60px 5% 28px;
+            padding: 56px 5% 24px;
         }
-        
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 48px;
-            margin-bottom: 48px;
-            max-width: 1100px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 40px;
+            margin-bottom: 44px;
+            max-width: 1000px;
         }
-        
         .footer-col h4 {
             color: white;
-            font-size: 16px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            letter-spacing: 0.3px;
         }
-        
-        .footer-col h4::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 30px;
-            height: 3px;
-            background: var(--arca-blue);
-            border-radius: 2px;
-        }
-        
         .footer-col a {
             display: block;
             color: #64748b;
             text-decoration: none;
-            margin-bottom: 12px;
-            font-size: 15px;
-            transition: all 0.3s;
-            position: relative;
-            padding-left: 0;
+            margin-bottom: 10px;
+            font-size: 14px;
+            transition: all 0.2s;
         }
-        
         .footer-col a:hover {
             color: white;
-            padding-left: 8px;
+            padding-left: 4px;
         }
-        
         .footer-bottom {
             border-top: 1px solid #1e293b;
-            padding-top: 28px;
+            padding-top: 24px;
             text-align: center;
-            font-size: 14px;
+            font-size: 13px;
             color: #475569;
         }
         
@@ -1082,88 +715,42 @@ html_code = '''<!DOCTYPE html>
         @media (max-width: 768px) {
             .hero {
                 grid-template-columns: 1fr;
-                padding: 60px 5% 40px;
+                padding: 56px 5% 40px;
                 text-align: center;
                 min-height: auto;
+                gap: 48px;
             }
-            
-            .hero-content h1 {
-                font-size: 36px;
-            }
-            
+            .hero-content h1 { font-size: 34px; }
             .hero-content .subtitle {
-                font-size: 18px;
+                font-size: 16px;
                 margin-left: auto;
                 margin-right: auto;
             }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
+            .hero-buttons { justify-content: center; }
             .trust-badges {
                 justify-content: center;
                 flex-wrap: wrap;
             }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .review-card {
-                padding: 32px 24px;
-            }
-            
-            .review-text {
-                font-size: 17px;
-            }
-            
-            .cta h2 {
-                font-size: 32px;
-            }
-            
+            .nav-links { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .review-card { padding: 32px 24px; }
+            .review-text { font-size: 16px; }
+            .cta h2 { font-size: 30px; }
             .cta-phone {
                 font-size: 22px;
                 padding: 18px 32px;
             }
-            
-            .section-header h2 {
-                font-size: 32px;
-            }
-            
-            .logo-arca {
-                font-size: 24px;
-            }
-            
-            .logo-plumbing {
-                font-size: 22px;
-            }
+            .section-header h2 { font-size: 30px; }
+            .logo-img { height: 40px; }
         }
         
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--light);
-        }
-        
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--light); }
         ::-webkit-scrollbar-thumb {
             background: var(--arca-blue);
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--arca-blue-light);
+            border-radius: 3px;
         }
     </style>
 </head>
@@ -1171,27 +758,18 @@ html_code = '''<!DOCTYPE html>
 
     <!-- Emergency Bar -->
     <div class="emergency-bar">
-        🚨 24/7 Emergency Plumbing Available — <a href="tel:9495550199">Call (949) 555-0199 Now</a>
+        24/7 Emergency Plumbing Available — <a href="tel:9495550199">Call (949) 555-0199 Now</a>
     </div>
 
     <!-- Navigation -->
     <nav id="navbar">
-        <div class="logo-container">
-            <div class="logo-arca">
-                <span class="wrench-left"></span>
-                A
-                <span class="wrench-center"></span>
-                RCA
-                <span class="wrench-right"></span>
-            </div>
-            <div class="logo-plumbing">Plumbing</div>
-        </div>
+        <img src="https://images.squarespace-cdn.com/content/v1/6517a4b89f9abc789d00bb5c/a71a8359-6bd2-440f-8ca1-0759cd8ed1de/image03.jpeg?format=1000w" alt="Arca Plumbing Logo" class="logo-img">
         <div class="nav-links">
             <a href="#services">Services</a>
             <a href="#why-us">Why Arca</a>
             <a href="#reviews">Reviews</a>
             <a href="#contact" class="phone-btn">
-                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
                 (949) 555-0199
             </a>
         </div>
@@ -1202,23 +780,38 @@ html_code = '''<!DOCTYPE html>
         <div class="hero-content">
             <div class="rating-pill">
                 <span class="stars">★★★★★</span>
-                <span class="rating-text">4.9 Google · 200+ Reviews</span>
+                <span>4.9 Google · 200+ Reviews</span>
             </div>
             <h1>Orange County's Most Trusted Plumbers Since 2006</h1>
             <p class="subtitle">Tankless water heater experts. Whole-home repipe specialists. Emergency response in 60 minutes or less.</p>
             <div class="hero-buttons">
-                <a href="#quote" class="btn-primary">Get Free Estimate →</a>
-                <a href="tel:9495550199" class="btn-secondary">⚡ Emergency? Call Now</a>
+                <a href="#quote" class="btn-primary">
+                    Get Free Estimate
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                </a>
+                <a href="tel:9495550199" class="btn-secondary">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+                    Emergency? Call Now
+                </a>
             </div>
             <div class="trust-badges">
-                <span>✓ Licensed & Bonded</span>
-                <span>✓ CSLB #123456</span>
-                <span>✓ A+ BBB Rated</span>
+                <span>
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+                    Licensed & Bonded
+                </span>
+                <span>
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+                    CSLB #123456
+                </span>
+                <span>
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+                    A+ BBB Rated
+                </span>
             </div>
         </div>
         <div class="hero-visual" id="quote">
             <h3>Get Your Free Estimate</h3>
-            <form onsubmit="event.preventDefault(); this.innerHTML='<div style=\\'text-align:center;padding:40px 0\\'><div style=\\'font-size:48px;margin-bottom:16px\\'>✅</div><h4 style=\\'font-size:22px;margin-bottom:8px\\'>Request Received!</h4><p style=\\'opacity:0.8\\'>We\\'ll call you within 15 minutes.</p></div>';">
+            <form onsubmit="event.preventDefault(); this.innerHTML='<div style=\\'text-align:center;padding:36px 0\\'><svg width=\\'48\\' height=\\'48\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'2\\' viewBox=\\'0 0 24 24\\' style=\\'margin:0 auto 16px\\'><path stroke-linecap=\\'round\\' stroke-linejoin=\\'round\\' d=\\'M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z\\'/></svg><h4 style=\\'font-size:20px;margin-bottom:8px;font-weight:700\\'>Request Received</h4><p style=\\'opacity:0.7;font-size:14px\\'>We will call you within 15 minutes.</p></div>';">
                 <div class="form-group">
                     <label>Full Name</label>
                     <input type="text" placeholder="John Smith" required>
@@ -1243,7 +836,7 @@ html_code = '''<!DOCTYPE html>
                     <label>Zip Code</label>
                     <input type="text" placeholder="92660" required>
                 </div>
-                <button type="submit" class="submit-btn">Get My Free Estimate →</button>
+                <button type="submit" class="submit-btn">Get My Free Estimate</button>
                 <p class="form-note">Response within 15 minutes during business hours</p>
             </form>
         </div>
@@ -1257,40 +850,52 @@ html_code = '''<!DOCTYPE html>
         </div>
         <div class="services-grid">
             <div class="service-card reveal reveal-delay-1">
-                <div class="service-icon">🚿</div>
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
                 <h3>Tankless Water Heaters</h3>
                 <p>Endless hot water, lower energy bills. Expert installation and conversion from traditional tanks.</p>
-                <a href="#" class="service-link">Learn More →</a>
+                <a href="#" class="service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>
             </div>
             <div class="service-card reveal reveal-delay-2">
-                <div class="service-icon">🔄</div>
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
+                </div>
                 <h3>Whole Home Repipe</h3>
                 <p>Replace old galvanized or polybutylene pipes with modern PEX or copper. Done in 1-2 days.</p>
-                <a href="#" class="service-link">Learn More →</a>
+                <a href="#" class="service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>
             </div>
             <div class="service-card reveal reveal-delay-3">
-                <div class="service-icon">🔥</div>
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1.001A3.75 3.75 0 0012 18z"/></svg>
+                </div>
                 <h3>Water Heater Repair</h3>
                 <p>Fast diagnosis and repair of all brands. Traditional tank and hybrid models serviced.</p>
-                <a href="#" class="service-link">Learn More →</a>
+                <a href="#" class="service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>
             </div>
             <div class="service-card reveal reveal-delay-1">
-                <div class="service-icon">🚨</div>
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+                </div>
                 <h3>Emergency Plumbing</h3>
                 <p>Burst pipes, major leaks, sewer backups. 24/7 response with upfront pricing.</p>
-                <a href="#" class="service-link">Learn More →</a>
+                <a href="#" class="service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>
             </div>
             <div class="service-card reveal reveal-delay-2">
-                <div class="service-icon">🚽</div>
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3"/></svg>
+                </div>
                 <h3>Drain Cleaning</h3>
                 <p>Hydro jetting and snaking for tough clogs. Camera inspection to find the real problem.</p>
-                <a href="#" class="service-link">Learn More →</a>
+                <a href="#" class="service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>
             </div>
             <div class="service-card reveal reveal-delay-3">
-                <div class="service-icon">💧</div>
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
                 <h3>Leak Detection</h3>
                 <p>Non-invasive detection for slab leaks and hidden pipe damage. Minimal disruption repair.</p>
-                <a href="#" class="service-link">Learn More →</a>
+                <a href="#" class="service-link">Learn More <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>
             </div>
         </div>
     </section>
@@ -1303,22 +908,22 @@ html_code = '''<!DOCTYPE html>
         </div>
         <div class="why-grid">
             <div class="why-item reveal reveal-delay-1">
-                <div class="why-number">60<span style="font-size:24px; font-weight:700;">min</span></div>
+                <div class="why-number">60<span style="font-size:20px; font-weight:700;">min</span></div>
                 <h3>Emergency Response</h3>
-                <p>When water's flooding your home, every minute counts. We prioritize emergency calls.</p>
+                <p>When water is flooding your home, every minute counts. We prioritize emergency calls.</p>
             </div>
             <div class="why-item reveal reveal-delay-2">
-                <div class="why-number">18<span style="font-size:24px; font-weight:700;">yr</span></div>
+                <div class="why-number">18<span style="font-size:20px; font-weight:700;">yr</span></div>
                 <h3>Serving Orange County</h3>
                 <p>Local expertise since 2006. We know OC homes, codes, and common plumbing issues.</p>
             </div>
             <div class="why-item reveal reveal-delay-3">
-                <div class="why-number">10<span style="font-size:24px; font-weight:700;">yr</span></div>
+                <div class="why-number">10<span style="font-size:20px; font-weight:700;">yr</span></div>
                 <h3>Warranty on Repipes</h3>
                 <p>Industry-leading coverage. We stand behind our tankless and repipe work for a full decade.</p>
             </div>
             <div class="why-item reveal reveal-delay-4">
-                <div class="why-number">0<span style="font-size:24px; font-weight:700;">$</span></div>
+                <div class="why-number">0<span style="font-size:20px; font-weight:700;">$</span></div>
                 <h3>Upfront Pricing</h3>
                 <p>No surprises, no hidden fees. You approve the quote before we start any work.</p>
             </div>
@@ -1333,9 +938,8 @@ html_code = '''<!DOCTYPE html>
         </div>
         <div class="review-carousel reveal">
             <div class="review-card">
-                <div class="quote-icon">"</div>
                 <div class="review-stars">★★★★★</div>
-                <p class="review-text">Arca repiped our entire house in one day. The crew was professional, clean, and the price was exactly what they quoted. No upsells, no surprises. Wish every contractor operated like this.</p>
+                <p class="review-text">"Arca repiped our entire house in one day. The crew was professional, clean, and the price was exactly what they quoted. No upsells, no surprises. Wish every contractor operated like this."</p>
                 <p class="review-author">Sarah M.</p>
                 <p class="review-location">Irvine, CA</p>
             </div>
@@ -1351,7 +955,7 @@ html_code = '''<!DOCTYPE html>
             </div>
             <div class="platform">
                 <div class="platform-score">A+</div>
-                <div class="platform-name">Better Business<br>Bureau</div>
+                <div class="platform-name">Better Business Bureau</div>
             </div>
         </div>
     </section>
@@ -1362,7 +966,7 @@ html_code = '''<!DOCTYPE html>
             <h2>Ready to Get Started?</h2>
             <p>Call now for emergency service, or request a free estimate for planned projects.</p>
             <a href="tel:9495550199" class="cta-phone">
-                <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
                 (949) 555-0199
             </a>
         </div>
@@ -1391,7 +995,7 @@ html_code = '''<!DOCTYPE html>
                 <a href="#">Newport Beach</a>
                 <a href="#">Costa Mesa</a>
                 <a href="#">Mission Viejo</a>
-                <a href="#">View All →</a>
+                <a href="#">View All</a>
             </div>
             <div class="footer-col">
                 <h4>Contact</h4>
@@ -1407,62 +1011,24 @@ html_code = '''<!DOCTYPE html>
     </footer>
 
     <script>
-        // Scroll reveal animation
         const revealElements = document.querySelectorAll('.reveal');
-        
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('active');
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-        
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         revealElements.forEach(el => revealObserver.observe(el));
         
-        // Navbar scroll effect
         const navbar = document.getElementById('navbar');
-        let lastScroll = 0;
-        
         window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            
-            lastScroll = currentScroll;
+            navbar.classList.toggle('scrolled', window.pageYOffset > 50);
         });
         
-        // Smooth scroll for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Form success animation
-        document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', function(e) {
-                const btn = this.querySelector('.submit-btn');
-                if (btn) {
-                    btn.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        btn.style.transform = '';
-                    }, 200);
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
     </script>
@@ -1470,11 +1036,10 @@ html_code = '''<!DOCTYPE html>
 </body>
 </html>'''
 
-# Save to file
-with open('/mnt/agents/output/arcaplumbing_redesign_v3_logo.html', 'w') as f:
+with open('/mnt/agents/output/arcaplumbing_redesign_v5.html', 'w') as f:
     f.write(html_code)
 
-print("✅ File saved to: sandbox:///mnt/agents/output/arcaplumbing_redesign_v3_logo.html")
+print("✅ File saved to: sandbox:///mnt/agents/output/arcaplumbing_redesign_v5.html")
 print(f"📄 Total lines: {len(html_code.splitlines())}")
 print(f"📏 File size: {len(html_code):,} characters")
 

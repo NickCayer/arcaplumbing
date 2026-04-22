@@ -6,14 +6,16 @@ html_code = '''<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arca Plumbing | Orange County's Trusted Plumbers Since 2006</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         :root {
+            --arca-blue: #1e40af;
+            --arca-blue-light: #3b82f6;
+            --arca-red: #b91c1c;
+            --arca-red-light: #ef4444;
             --primary: #0ea5e9;
-            --primary-dark: #0284c7;
             --secondary: #06b6d4;
             --accent: #f59e0b;
-            --accent-glow: rgba(245, 158, 11, 0.4);
             --dark: #0f172a;
             --darker: #020617;
             --light: #f8fafc;
@@ -39,6 +41,104 @@ html_code = '''<!DOCTYPE html>
             background: var(--white);
         }
         
+        /* ===== ARCA LOGO ===== */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+        
+        .logo-arca {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--arca-blue);
+            letter-spacing: 2px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-arca .wrench-left {
+            display: inline-block;
+            width: 28px;
+            height: 8px;
+            background: var(--arca-blue);
+            border-radius: 4px 0 0 4px;
+            position: relative;
+            margin-right: -2px;
+        }
+        
+        .logo-arca .wrench-left::after {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 16px;
+            background: var(--arca-blue);
+            border-radius: 50%;
+        }
+        
+        .logo-arca .wrench-right {
+            display: inline-block;
+            width: 28px;
+            height: 8px;
+            background: var(--arca-blue);
+            border-radius: 0 4px 4px 0;
+            position: relative;
+            margin-left: -2px;
+        }
+        
+        .logo-arca .wrench-right::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 16px;
+            background: var(--arca-blue);
+            border-radius: 50%;
+        }
+        
+        .logo-arca .wrench-center {
+            display: inline-block;
+            width: 20px;
+            height: 3px;
+            background: var(--arca-blue);
+            margin: 0 2px;
+            position: relative;
+        }
+        
+        .logo-arca .wrench-center::before,
+        .logo-arca .wrench-center::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--arca-blue);
+            left: 0;
+        }
+        
+        .logo-arca .wrench-center::before {
+            top: -5px;
+        }
+        
+        .logo-arca .wrench-center::after {
+            bottom: -5px;
+        }
+        
+        .logo-plumbing {
+            font-family: 'Great Vibes', cursive;
+            font-size: 28px;
+            color: var(--arca-red);
+            margin-top: -8px;
+            margin-left: 8px;
+            letter-spacing: 1px;
+        }
+        
         /* ===== ANIMATIONS ===== */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
@@ -46,8 +146,8 @@ html_code = '''<!DOCTYPE html>
         }
         
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px var(--accent-glow), 0 0 40px rgba(245,158,11,0.2); }
-            50% { box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(245,158,11,0.3); }
+            0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.4), 0 0 40px rgba(245, 158, 11, 0.2); }
+            50% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.5), 0 0 60px rgba(245, 158, 11, 0.3); }
         }
         
         @keyframes gradient-shift {
@@ -61,11 +161,6 @@ html_code = '''<!DOCTYPE html>
             to { opacity: 1; transform: translateY(0); }
         }
         
-        @keyframes slide-in-left {
-            from { opacity: 0; transform: translateX(-80px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
         @keyframes slide-in-right {
             from { opacity: 0; transform: translateX(80px); }
             to { opacity: 1; transform: translateX(0); }
@@ -76,39 +171,20 @@ html_code = '''<!DOCTYPE html>
             to { opacity: 1; transform: scale(1); }
         }
         
-        @keyframes ripple {
-            0% { transform: scale(0); opacity: 1; }
-            100% { transform: scale(4); opacity: 0; }
-        }
-        
-        @keyframes count-up {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-        
-        @keyframes orbit {
-            0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
-        }
-        
         @keyframes wave {
             0%, 100% { transform: translateY(0); }
             25% { transform: translateY(-10px); }
             75% { transform: translateY(5px); }
         }
         
-        @keyframes draw-line {
-            from { stroke-dashoffset: 1000; }
-            to { stroke-dashoffset: 0; }
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        @keyframes logo-breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
         }
         
         /* ===== REVEAL ON SCROLL ===== */
@@ -131,7 +207,7 @@ html_code = '''<!DOCTYPE html>
         
         /* ===== EMERGENCY BAR ===== */
         .emergency-bar {
-            background: linear-gradient(90deg, #dc2626, #ef4444, #dc2626);
+            background: linear-gradient(90deg, var(--arca-red), var(--arca-red-light), var(--arca-red));
             background-size: 200% 100%;
             animation: gradient-shift 3s ease infinite;
             color: white;
@@ -155,11 +231,6 @@ html_code = '''<!DOCTYPE html>
             animation: shimmer 2s infinite;
         }
         
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-        
         .emergency-bar a {
             color: white;
             text-decoration: underline;
@@ -172,10 +243,10 @@ html_code = '''<!DOCTYPE html>
         
         /* ===== NAVIGATION ===== */
         nav {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            padding: 16px 5%;
+            padding: 14px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -187,37 +258,8 @@ html_code = '''<!DOCTYPE html>
         }
         
         nav.scrolled {
-            padding: 12px 5%;
+            padding: 10px 5%;
             box-shadow: 0 4px 30px rgba(0,0,0,0.08);
-        }
-        
-        .logo {
-            font-size: 26px;
-            font-weight: 900;
-            color: var(--primary-dark);
-            letter-spacing: -1px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-        
-        .logo:hover::after {
-            width: 100%;
-        }
-        
-        .logo span {
-            color: var(--accent);
-            font-weight: 800;
         }
         
         .nav-links {
@@ -243,12 +285,12 @@ html_code = '''<!DOCTYPE html>
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary);
+            background: var(--arca-blue);
             transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
         .nav-links a:hover {
-            color: var(--primary-dark);
+            color: var(--arca-blue);
         }
         
         .nav-links a:hover::after {
@@ -307,7 +349,7 @@ html_code = '''<!DOCTYPE html>
         
         /* ===== HERO ===== */
         .hero {
-            background: linear-gradient(135deg, #0c4a6e 0%, #075985 30%, #0369a1 60%, #0ea5e9 100%);
+            background: linear-gradient(135deg, #0c4a6e 0%, #075985 30%, #0369a1 60%, var(--primary) 100%);
             background-size: 400% 400%;
             animation: gradient-shift 15s ease infinite;
             color: white;
@@ -321,7 +363,6 @@ html_code = '''<!DOCTYPE html>
             overflow: hidden;
         }
         
-        /* Animated background particles */
         .hero::before {
             content: '';
             position: absolute;
@@ -342,7 +383,7 @@ html_code = '''<!DOCTYPE html>
         }
         
         .hero-content h1 {
-            font-size: 56px;
+            font-size: 52px;
             font-weight: 900;
             line-height: 1.05;
             margin-bottom: 24px;
@@ -352,7 +393,7 @@ html_code = '''<!DOCTYPE html>
         }
         
         .hero-content .subtitle {
-            font-size: 22px;
+            font-size: 21px;
             opacity: 0.9;
             margin-bottom: 36px;
             font-weight: 400;
@@ -404,7 +445,7 @@ html_code = '''<!DOCTYPE html>
         
         .btn-primary {
             background: white;
-            color: var(--primary-dark);
+            color: var(--arca-blue);
             padding: 18px 36px;
             border-radius: 14px;
             text-decoration: none;
@@ -488,7 +529,6 @@ html_code = '''<!DOCTYPE html>
             transform: translateX(5px);
         }
         
-        /* Hero Form */
         .hero-visual {
             background: rgba(255,255,255,0.08);
             backdrop-filter: blur(30px);
@@ -657,7 +697,7 @@ html_code = '''<!DOCTYPE html>
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: linear-gradient(90deg, var(--arca-blue), var(--arca-blue-light));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -669,8 +709,8 @@ html_code = '''<!DOCTYPE html>
         
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(14, 165, 233, 0.15);
-            border-color: rgba(14, 165, 233, 0.2);
+            box-shadow: 0 20px 60px rgba(30, 64, 175, 0.12);
+            border-color: rgba(30, 64, 175, 0.15);
         }
         
         .service-icon {
@@ -688,7 +728,7 @@ html_code = '''<!DOCTYPE html>
         
         .service-card:hover .service-icon {
             transform: scale(1.1) rotate(-5deg);
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--arca-blue), var(--arca-blue-light));
         }
         
         .service-card h3 {
@@ -708,7 +748,7 @@ html_code = '''<!DOCTYPE html>
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--primary);
+            color: var(--arca-blue);
             font-weight: 700;
             font-size: 15px;
             margin-top: 20px;
@@ -724,13 +764,13 @@ html_code = '''<!DOCTYPE html>
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary);
+            background: var(--arca-blue);
             transition: width 0.3s;
         }
         
         .service-link:hover {
             gap: 14px;
-            color: var(--primary-dark);
+            color: var(--arca-blue-light);
         }
         
         .service-link:hover::after {
@@ -768,7 +808,7 @@ html_code = '''<!DOCTYPE html>
         .why-number {
             font-size: 64px;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--arca-blue), var(--arca-blue-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -962,7 +1002,7 @@ html_code = '''<!DOCTYPE html>
             align-items: center;
             gap: 14px;
             background: white;
-            color: var(--primary-dark);
+            color: var(--arca-blue);
             padding: 24px 48px;
             border-radius: 16px;
             text-decoration: none;
@@ -1010,7 +1050,7 @@ html_code = '''<!DOCTYPE html>
             left: 0;
             width: 30px;
             height: 3px;
-            background: var(--primary);
+            background: var(--arca-blue);
             border-radius: 2px;
         }
         
@@ -1098,6 +1138,14 @@ html_code = '''<!DOCTYPE html>
             .section-header h2 {
                 font-size: 32px;
             }
+            
+            .logo-arca {
+                font-size: 24px;
+            }
+            
+            .logo-plumbing {
+                font-size: 22px;
+            }
         }
         
         /* Scrollbar styling */
@@ -1110,12 +1158,12 @@ html_code = '''<!DOCTYPE html>
         }
         
         ::-webkit-scrollbar-thumb {
-            background: var(--primary);
+            background: var(--arca-blue);
             border-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-dark);
+            background: var(--arca-blue-light);
         }
     </style>
 </head>
@@ -1128,7 +1176,16 @@ html_code = '''<!DOCTYPE html>
 
     <!-- Navigation -->
     <nav id="navbar">
-        <div class="logo">ARCA <span>PLUMBING</span></div>
+        <div class="logo-container">
+            <div class="logo-arca">
+                <span class="wrench-left"></span>
+                A
+                <span class="wrench-center"></span>
+                RCA
+                <span class="wrench-right"></span>
+            </div>
+            <div class="logo-plumbing">Plumbing</div>
+        </div>
         <div class="nav-links">
             <a href="#services">Services</a>
             <a href="#why-us">Why Arca</a>
@@ -1414,10 +1471,11 @@ html_code = '''<!DOCTYPE html>
 </html>'''
 
 # Save to file
-with open('/mnt/agents/output/arcaplumbing_redesign_v2.html', 'w') as f:
+with open('/mnt/agents/output/arcaplumbing_redesign_v3_logo.html', 'w') as f:
     f.write(html_code)
 
-print("✅ File saved to: sandbox:///mnt/agents/output/arcaplumbing_redesign_v2.html")
+print("✅ File saved to: sandbox:///mnt/agents/output/arcaplumbing_redesign_v3_logo.html")
 print(f"📄 Total lines: {len(html_code.splitlines())}")
 print(f"📏 File size: {len(html_code):,} characters")
+
 
